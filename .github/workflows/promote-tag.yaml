@@ -68,6 +68,9 @@ jobs:
             echo "SERVICE_ARN=$(aws apprunner list-services | jq -r \
             '.ServiceSummaryList[] | select(.ServiceName == env.SERVICE_NAME).ServiceArn')" >> $GITHUB_ENV
 
-      - name: Redeploy App Runner
+      - name: Redeploy Lambda
+        env:
+          ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
         run: |
-          aws apprunner start-deployment --service-arn $SERVICE_ARN
+          aws lambda update-function-code --function-name $SERVICE_NAME \
+          --image-uri ${ECR_REGISTRY}/${ECR_REPOSITORY}:latest
