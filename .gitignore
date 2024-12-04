@@ -1,0 +1,12 @@
+# Python
+.venv/
+
+# Terraform
+**/.terraform
+
+# Local env files
+.env*.local
+
+# Test Files
+user.json
+person.json
