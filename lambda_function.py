@@ -90,12 +90,14 @@ def resolve_values(message):
         raise err
 
 def process_message(message):
-    resolve_env_vars()
+    print(f'Message: {message}')
     values = resolve_values(message)
     ses_client = configure_aws_client('ses')
     send_mail(values, ses_client)
 
 def handler(event, context):
+    resolve_env_vars()
+    print(f'Event: {event}')
     for message in event['Records']:
         process_message(message)
     print('Finished processing messages')

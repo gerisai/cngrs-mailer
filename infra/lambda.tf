@@ -4,7 +4,7 @@ resource "aws_lambda_function" "cngrs_mailer" {
   
   package_type = "Image"
   image_uri = "${aws_ecr_repository.cngrs-mailer.repository_url}:${var.image_tag}"
-  architectures = ["arm64"]
+  architectures = ["x86_64"]
 
   ephemeral_storage {
     size = 512
