@@ -1,0 +1,111 @@
+import boto3
+import qrcode
+import os
+from email.mime.multipart import MIMEMultipart
+from email.mime.application import MIMEApplication
+from email.mime.text import MIMEText
+from mjml import mjml2html
+from qrcode.image.styledpil import StyledPilImage
+from qrcode.image.styles.moduledrawers.pil import GappedSquareModuleDrawer
+
+CHARSET = "utf-8"
+VALUES = {
+    'person': ['Name', 'Address', 'PersonId'],
+    'user': ['Name', 'Address', 'Username', 'Password']
+}
+QR_CODE_PATH = '/tmp/qrcode.png'
+QR_LOGO_PATH='assets/logo.jpg'
+MAIL_LOGO_NAME='logo-white.png'
+TEMPLATES_PATH='templates'
+
+def resolve_env_vars():
+    global sender; sender = os.environ['SENDER_ADDRESS']
+    global assets_url; assets_url = os.environ['ASSETS_URL']
+    global base_cngrs_url; base_cngrs_url = os.environ['BASE_CNGRS_URL']
+
+def configure_aws_client(name):
+    client = boto3.client(name)
+    return client
+
+def create_qr_code(url):
+    qr = qrcode.QRCode(error_correction=qrcode.constants.ERROR_CORRECT_H)
+    qr.add_data(url)
+    qr_code = qr.make_image(image_factory=StyledPilImage, embeded_image_path=QR_LOGO_PATH, module_drawer=GappedSquareModuleDrawer())
+    qr_code.save(QR_CODE_PATH)
+
+def template_mjml(values):
+    with open(f'{TEMPLATES_PATH}/{values["mail_type"]}.mjml','r') as file:
+        content = file.read()
+        filled_content = content.format(**values, LogoUrl=f'{assets_url}/{MAIL_LOGO_NAME}')
+        html = mjml2html(filled_content)
+    return html
+
+def build_email(values):
+    msg = MIMEMultipart('mixed')
+    msg['Subject'] =  f'Bienvenido al CNGRS24 {values["Name"]}'
+    msg['From'] = sender
+    msg['To'] = values['Address']
+    msg_body = MIMEMultipart('alternative')
+    html = template_mjml(values)
+    content = MIMEText(html.encode(CHARSET), 'html', CHARSET)
+    msg_body.attach(content)
+    if values['mail_type'] == 'person':
+        att = MIMEApplication(open(QR_CODE_PATH, 'rb').read())
+        att.add_header('Content-ID', 'qr-code')
+        att.add_header('Content-Disposition', 'inline', filename=f'{values['Name']}.png')
+        msg.attach(att)
+    msg.attach(msg_body)
+    return msg
+
+def send_mail(values,ses_client):
+    msg = build_email(values)
+    ses_client.send_raw_email(
+        Source=sender,
+        Destinations=[
+            values['Address']
+        ],
+        RawMessage={
+            'Data': msg.as_string()
+        }
+    )
+
+def resolve_values(message):
+    values = {}
+    try:
+        mail_type = message['messageAttributes']['MailType']
+        values['mail_type'] = mail_type
+        values_list = VALUES[mail_type]
+        for v in values_list:
+            values[v] = message['messageAttributes'][v]
+        if mail_type == 'person':
+            create_qr_code(f'{base_cngrs_url}/person/{values["PersonId"]}')
+        if mail_type == 'user':
+            values['Login'] = f'{base_cngrs_url}/login'
+        return values
+    except KeyError as err:
+        print(f'Missing message attribute')
+        raise err
+    except Exception as err:
+        print("An error occurred")
+        raise err
+
+def process_message(message):
+    resolve_env_vars()
+    values = resolve_values(message)
+    ses_client = configure_aws_client('ses')
+    send_mail(values, ses_client)
+
+def handler(event, context):
+    for message in event['Records']:
+        process_message(message)
+    print('Finished processing messages')
+
+if __name__ == '__main__':
+    from sys import argv,exit
+    from json import loads
+    if len(argv) != 2:
+        print(f'Usage: {argv[0]} <mail_type>')
+        exit(1)
+    mail_type = argv[1]
+    with open(f'{mail_type}.json', 'r') as file:
+        handler(event=loads(file.read()), context=None)
