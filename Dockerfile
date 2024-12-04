@@ -6,4 +6,8 @@ RUN pip install -r requirements.txt
 
 COPY lambda_function.py ${LAMBDA_TASK_ROOT}
 
+COPY templates ${LAMBDA_TASK_ROOT}/templates
+
+COPY assets ${LAMBDA_TASK_ROOT}/assets
+
 CMD [ "lambda_function.handler" ]
