@@ -1,0 +1,92 @@
+<mjml>
+  <mj-head>
+    <mj-title>Bienvenid@</mj-title>
+    <mj-attributes>
+      <mj-all font-family="'Helvetica Neue', Helvetica, Arial, sans-serif"></mj-all>
+      <mj-text font-weight="400" font-size="16px" color="#000000" line-height="24px" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif"></mj-text>
+    </mj-attributes>
+  </mj-head>
+  <mj-body>
+    <mj-section full-width="full-width" background-color="#00BFDD" padding-bottom="0">
+      <mj-column width="100%">
+        <mj-image width="50px" src="{LogoUrl}" />
+        <mj-text color="#ffffff" font-weight="bold" align="center" text-transform="uppercase" font-size="16px" letter-spacing="1px" padding-top="10px">
+          ¡Bienvenid@ al CNGRS24!
+        </mj-text>
+      </mj-column>
+    </mj-section>
+    <mj-wrapper padding-top="0" padding-bottom="0" css-class="body-section">
+      <mj-section background-color="#ffffff" padding-left="15px" padding-right="15px">
+        <mj-column width="100%">
+          <mj-text color="#212b35" font-weight="bold" font-size="20px">
+            Hola {Name},
+          </mj-text>
+          <mj-text color="#637381" font-size="16px">
+            Tu registro al CNGRS24 ha sido exitoso.
+          </mj-text>
+          <mj-text color="#637381" font-size="16px">
+            Te recordamos que para agilizar tu acceso, se utilizará un código QR ajunto a este correo electrónico.
+          </mj-text>
+          <mj-text color="#637381" font-size="16px" padding-bottom="30px">
+            Te pedimos no compartirlo ya que esta asociado a tus datos y podría impactar negativamente en tu acceso.
+          </mj-text>
+        </mj-column>
+      </mj-section>
+      <mj-section background-color="#ffffff" padding-left="15px" padding-right="15px" padding-top="0">
+        <mj-column width="100%">
+          <mj-divider border-color="#DFE3E8" border-width="1px" />
+        </mj-column>
+      </mj-section>
+      <mj-section background-color="#ffffff" padding="0 15px 0 15px">
+        <mj-column width="100%">
+          <mj-text color="#212b35" font-weight="bold" font-size="20px" padding-bottom="0">
+            ¡Te esperamos!
+          </mj-text>
+          <mj-text color="#637381" font-size="16px">
+            Aquí tienes más detalles.
+          </mj-text>
+        </mj-column>
+      </mj-section>
+      <mj-section background-color="#ffffff" padding-left="15px" padding-right="15px">
+        <mj-column width="50%">
+          <mj-text color="#212b35" font-size="12px" text-transform="uppercase" font-weight="bold" padding-bottom="0">
+            DIRECCION
+          </mj-text>
+          <mj-text color="#637381" font-size="14px" padding-top="0">
+            Club Campestre "Santa María" 
+            <br />
+            Carretera Federal México-Cuautla Km. 48.5
+            <br />
+            Fraccionamiento Campestre Santa María, Tlalmanalco, Estado de México
+          </mj-text>
+        </mj-column>
+        <mj-column width="50%">
+          <mj-text color="#212b35" font-size="12px" text-transform="uppercase" font-weight="bold" padding-bottom="0">
+            FECHAS
+          </mj-text>
+          <mj-text color="#637381" font-size="14px" padding-top="0">
+            Domingo, 22 de diciembre, 7 AM
+            <br />
+            <span style="color: #979797; font-weight: normal">-</span>
+            <br />
+            Miercoles, 25 de diciembre, 12 PM
+          </mj-text>
+        </mj-column>
+      </mj-section>
+    </mj-wrapper>
+    <mj-wrapper full-width="full-width">
+      <mj-section>
+        <mj-column width="100%" padding="0">
+          <mj-social font-size="15px" icon-size="30px" mode="horizontal" padding="0" align="center">
+            <mj-social-element name="facebook" href="https://facebook.com/juvenilidi" background-color="#00BFDD">
+            </mj-social-element>
+            <mj-social-element name="instagram" href="https://instagram.com/juvenilidi" background-color="#00BFDD">
+            </mj-social-element>
+            <mj-social-element name="web" href="https://wa.me/+525564286151" background-color="#00BFDD">
+            </mj-social-element>
+          </mj-social>
+        </mj-column>
+      </mj-section>
+    </mj-wrapper>
+  </mj-body>
+</mjml>

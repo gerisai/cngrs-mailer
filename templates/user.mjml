@@ -1,0 +1,61 @@
+<mjml>
+  <mj-head>
+    <mj-title>Bienvenid@</mj-title>
+    <mj-attributes>
+      <mj-all font-family="'Helvetica Neue', Helvetica, Arial, sans-serif"></mj-all>
+      <mj-text font-weight="400" font-size="16px" color="#000000" line-height="24px" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif"></mj-text>
+    </mj-attributes>
+  </mj-head>
+  <mj-body>
+    <mj-section full-width="full-width" background-color="#00BFDD" padding-bottom="0">
+      <mj-column width="100%">
+        <mj-image width="50px" src="{LogoUrl}" />
+        <mj-text color="#ffffff" font-weight="bold" align="center" text-transform="uppercase" font-size="16px" letter-spacing="1px" padding-top="10px">
+          ¡Bienvenid@ al CNGRS24!
+        </mj-text>
+      </mj-column>
+    </mj-section>
+    <mj-wrapper padding-top="0" padding-bottom="0" css-class="body-section">
+      <mj-section background-color="#ffffff" padding-left="15px" padding-right="15px">
+        <mj-column width="100%">
+          <mj-text color="#212b35" font-weight="bold" font-size="20px">
+            Hola {Name},
+          </mj-text>
+          <mj-text color="#637381" font-size="16px">
+            Como parte del staff necesitarás una cuenta para la plataforma.
+          </mj-text>
+          <mj-text color="#637381" font-size="16px">
+            Aquí estan los datos de inicio de sesión:
+          </mj-text>
+          <mj-text color="#637381" font-size="16px">
+            <ul>
+              <li style="padding-bottom: 20px"><strong>Usuario:</strong> {Username}</li>
+              <li style="padding-bottom: 20px"><strong>Contraseña:</strong> {Password}</li>
+            </ul>
+          </mj-text>
+          <mj-text color="#637381" font-size="16px" padding-bottom="30px">
+            Te pedimos no compartirlos ya que son únicos y existe un registro de las acciones por usuario.
+          </mj-text>
+          <mj-button background-color="#00BFDD" align="center" color="#ffffff" font-size="17px" font-weight="bold" href="{Login}" width="300px">
+            Iniciar Sesión
+          </mj-button>
+        </mj-column>
+      </mj-section>
+    </mj-wrapper>
+
+    <mj-wrapper full-width="full-width">
+      <mj-section>
+        <mj-column width="100%" padding="0">
+          <mj-social font-size="15px" icon-size="30px" mode="horizontal" padding="0" align="center">
+            <mj-social-element name="facebook" href="https://facebook.com/juvenilidi" background-color="#00BFDD">
+            </mj-social-element>
+            <mj-social-element name="instagram" href="https://instagram.com/juvenilidi" background-color="#00BFDD">
+            </mj-social-element>
+            <mj-social-element name="web" href="https://wa.me/+525564286151" background-color="#00BFDD">
+            </mj-social-element>
+          </mj-social>
+        </mj-column>
+      </mj-section>
+    </mj-wrapper>
+  </mj-body>
+</mjml>
