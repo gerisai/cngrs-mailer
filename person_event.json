@@ -14,10 +14,30 @@
               "ApproximateFirstReceiveTimestamp": "1573251510774"
           },
           "messageAttributes": {
-            "MailType": "person",
-            "Name": "$Name",
-            "Address": "$Email",
-            "PersonId": "$PersonId"
+            "MailType": {
+              "stringValue": "person", 
+              "stringListValues": [], 
+              "binaryListValues": [], 
+              "dataType": "String"
+            },
+            "Name": {
+              "stringValue": "$Name", 
+              "stringListValues": [], 
+              "binaryListValues": [], 
+              "dataType": "String"
+            },
+            "Address": {
+              "stringValue": "$Email", 
+              "stringListValues": [], 
+              "binaryListValues": [], 
+              "dataType": "String"
+            },
+            "PersonId": {
+              "stringValue": "$PersonId", 
+              "stringListValues": [], 
+              "binaryListValues": [], 
+              "dataType": "String"
+            }
           },
           "md5OfBody": "e4e68fb7bd0e697a0ae8f1bb342846b3",
           "eventSource": "aws:sqs",

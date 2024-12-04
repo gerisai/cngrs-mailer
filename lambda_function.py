@@ -72,11 +72,11 @@ def send_mail(values,ses_client):
 def resolve_values(message):
     values = {}
     try:
-        mail_type = message['messageAttributes']['MailType']
+        mail_type = message['messageAttributes']['MailType']['stringValue']
         values['mail_type'] = mail_type
         values_list = VALUES[mail_type]
         for v in values_list:
-            values[v] = message['messageAttributes'][v]
+            values[v] = message['messageAttributes'][v]['stringValue']
         if mail_type == 'person':
             create_qr_code(f'{base_cngrs_url}/person/{values["PersonId"]}')
         if mail_type == 'user':
