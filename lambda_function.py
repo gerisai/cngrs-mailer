@@ -106,10 +106,12 @@ def resolve_values(message):
         logger.info('Resolved message values successfully')
         return values
     except KeyError as err:
-        print(f'Missing message attribute')
+        logger.error(f'Missing message attribute')
+        logger.error(err)
         raise err
     except Exception as err:
-        print("An error occurred")
+        logger.error("An error occurred")
+        logger.error(err)
         raise err
 
 def process_message(message):
