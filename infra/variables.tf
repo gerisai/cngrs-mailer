@@ -1,7 +1,7 @@
 variable "image_tag" {
   type        = string
   description = "Docker image tag to use for CNGRS Mailer"
-  default = "latest"
+  default     = "latest"
 }
 
 variable "sender_address" {
@@ -10,11 +10,11 @@ variable "sender_address" {
 }
 
 variable "assets_url" {
-  type = string
+  type        = string
   description = "Static assets URL to embed into emails"
 }
 
 variable "base_cngrs_url" {
-  type = string
+  type        = string
   description = "Base CNGRS URL"
 }

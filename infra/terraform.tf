@@ -23,6 +23,6 @@ provider "aws" {
       Environment = "Production"
       Project     = "CNGRS"
       App         = "cngrs-mailer"
-  }
+    }
   }
 }
