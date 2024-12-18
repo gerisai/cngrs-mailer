@@ -11,7 +11,7 @@ from qrcode.image.styles.moduledrawers.pil import GappedSquareModuleDrawer
 
 CHARSET = "utf-8"
 VALUES = {
-    'person': ['Name', 'Address', 'PersonId'],
+    'person': ['Name', 'Address', 'City', 'Room', 'PersonId'],
     'user': ['Name', 'Address', 'Username', 'Password']
 }
 QR_CODE_PATH = '/tmp/qrcode.png'

@@ -32,6 +32,18 @@
               "binaryListValues": [], 
               "dataType": "String"
             },
+            "City": {
+              "stringValue": "$City", 
+              "stringListValues": [], 
+              "binaryListValues": [], 
+              "dataType": "String"
+            },
+            "Room": {
+              "stringValue": "$Room", 
+              "stringListValues": [], 
+              "binaryListValues": [], 
+              "dataType": "String"
+            },
             "PersonId": {
               "stringValue": "$PersonId", 
               "stringListValues": [], 

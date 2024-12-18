@@ -30,6 +30,26 @@
           <mj-text color="#637381" font-size="16px" padding-bottom="30px">
             Te pedimos no compartirlo ya que esta asociado a tus datos y podría impactar negativamente en tu acceso.
           </mj-text>
+          <mj-text color="#637381" font-size="16px" padding-bottom="30px">
+            Adicionalmente te compartimos los datos de tu asignación de equipo y cuarto:
+          </mj-text>
+
+        </mj-column>
+        <mj-column width="50%">
+          <mj-text font-weight="bold" align="center" color="#212b35" font-size="20px" padding-bottom="0">
+            Ciudad
+          </mj-text>
+          <mj-text text-transform="uppercase" align="center" color="#637381" font-size="20px" padding-bottom="0">
+            {City}
+          </mj-text>
+        </mj-column>
+        <mj-column width="50%">
+          <mj-text font-weight="bold" align="center" color="#212b35" font-size="20px" padding-bottom="0">
+            Cuarto
+          </mj-text>
+          <mj-text text-transform="uppercase" align="center" color="#637381" font-size="20px" padding-bottom="0">
+            {Room}
+          </mj-text>
         </mj-column>
       </mj-section>
       <mj-section background-color="#ffffff" padding-left="15px" padding-right="15px" padding-top="0">
@@ -50,7 +70,7 @@
       <mj-section background-color="#ffffff" padding-left="15px" padding-right="15px">
         <mj-column width="50%">
           <mj-text color="#212b35" font-size="12px" text-transform="uppercase" font-weight="bold" padding-bottom="0">
-            DIRECCION
+            DIRECCIÓN
           </mj-text>
           <mj-text color="#637381" font-size="14px" padding-top="0">
             Club Campestre "Santa María" 
