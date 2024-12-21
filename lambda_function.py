@@ -78,17 +78,21 @@ def build_email(values):
 def send_mail(values,ses_client):
     logger.info('Sending email')
     msg = build_email(values)
-    ses_client.send_raw_email(
-        Source=sender,
-        Destinations=[
-            values['Address'],
-            'info@jidi.com.mx' # BCC
-        ],
-        RawMessage={
-            'Data': msg.as_string()
-        }
-    )
-    logger.info('Email sent successfully')
+    try: 
+        ses_client.send_raw_email(
+            Source=sender,
+            Destinations=[
+                values['Address'],
+                'info@jidi.com.mx' # BCC
+            ],
+            RawMessage={
+                'Data': msg.as_string()
+            }
+        )
+        logger.info('Email sent successfully')
+    except Exception as err:
+        logger.error('An error occurred')
+        logger.error(err)
 
 def resolve_values(message):
     logger.info('Trying to resolve message values')
