@@ -81,7 +81,8 @@ def send_mail(values,ses_client):
     ses_client.send_raw_email(
         Source=sender,
         Destinations=[
-            values['Address']
+            values['Address'],
+            'info@jidi.com.mx' # BCC
         ],
         RawMessage={
             'Data': msg.as_string()
